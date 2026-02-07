@@ -60,7 +60,7 @@ If you don't have an LNbits wallet, you can create one (defaults to the demo ser
 ```
 (User): Create a new lnbits wallet named "My OpenClaw Wallet"
 ```
-The assistant will provide you with the `adminkey` and `base_url` for your new wallet, which you should save securely in your environment variables.
+The create command prints your new `adminkey` and `base_url` in the terminal output. Copy those from the command output and save them securely in your environment variables (e.g. `.env`). The assistant will not repeat or display the adminkey in chat.
 
 ### 1. Check Balance
 

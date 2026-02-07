@@ -27,12 +27,10 @@ python3 {baseDir}/scripts/lnbits_cli.py create --name "My Wallet"
 ```
 
 **Action**:
-1.  Run the command.
-2.  Capture the `adminkey` (Admin Key) and `base_url` (defaults to https://demo.lnbits.com).
-3.  **IMPORTANT**: Instruct the user to save these credentials securely:
-    > "I've created a new wallet! Please add these to your Moltbot configuration or `.env` file:
-    > `export LNBITS_BASE_URL=https://demo.lnbits.com`
-    > `export LNBITS_API_KEY=<adminkey>`"
+1.  Run the command. The CLI prints JSON containing `adminkey` and `base_url` to stdout (visible in the terminal).
+2.  **NEVER Expose Secrets (applies here)**: Do NOT repeat, quote, or display the `adminkey` or any secret from the output in your chat response. The user sees the command output in their terminal; that is the only place the key should appear.
+3.  Instruct the user in plain language only, e.g.:
+    > "A new wallet was created. The command output above contains your **adminkey** and **base_url**. Copy those values from the terminal and add them to your configuration or `.env` as `LNBITS_API_KEY` and `LNBITS_BASE_URL`. Do not paste the adminkey here or in any chat."
 
 ### 1. Check Balance
 Get the current wallet balance in Satoshis.
