@@ -64,7 +64,7 @@ Here is your 100 sat invoice:
 
 lnbc1u1p5abc123...
 
-MEDIA:./.lnbits_qr/invoice_xxx.png
+MEDIA:./clawd/.lnbits_qr/invoice_xxx.png
 ```
 
 **CRITICAL**: The `MEDIA:` and file path MUST be on the SAME LINE. This sends the QR code image to the user.

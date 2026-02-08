@@ -45,13 +45,17 @@ def cleanup_old_qr_files():
             pass
 
 def get_qr_path():
-    """Get a unique path for a new QR code file. Returns (absolute_path, relative_path)."""
+    """Get a unique path for a new QR code file. Returns (absolute_path, media_path).
+
+    The media_path is a ./ relative path resolved from the gateway's CWD (home dir)
+    since OpenClaw's MEDIA: parser only accepts ./relative paths.
+    """
     os.makedirs(QR_DIR, exist_ok=True)
     cleanup_old_qr_files()
     filename = f"invoice_{int(time.time() * 1000)}.png"
     abs_path = os.path.join(QR_DIR, filename)
-    rel_path = os.path.join(".", ".lnbits_qr", filename)
-    return abs_path, rel_path
+    media_path = "./" + os.path.relpath(abs_path, os.path.expanduser("~"))
+    return abs_path, media_path
 
 def generate_qr(data, output_path=None):
     """Generate a QR code. If output_path provided, saves to file and returns path. Otherwise returns base64."""
